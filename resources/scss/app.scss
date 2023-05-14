@@ -42,7 +42,13 @@ section.hero {
     }
 }
 
-
+.btn-primary {
+    background: $primary;
+    transition: $smooth;
+    &:hover {
+        background: $primary-hover;
+    }
+}
 
 
 
