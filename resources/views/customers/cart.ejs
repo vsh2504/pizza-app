@@ -1,1 +1,105 @@
-<h1>This is our cart page</h1>
+<section class="cart py-16">
+
+    <!-- Empty Cart Start -->
+    <!-- <div class="empty-cart py-12">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold mb-4">Cart Empty 😕</h1>
+            <p class="text-gray-500 text-lg mb-12">You probably haven't ordered a pizza yet.<br/>
+                To order a pizza, go to the main page.</p>
+    
+            <img class="w-2/5 mx-auto" src="/img/empty-cart.png" alt="Empty Cart">
+            <a href="/" class="inline-block btn-primary py-2 px-6 mt-12 text-white font-bold rounded-full">Go back</a>
+        </div>
+    </div> -->
+    <!-- Empty Cart End -->
+
+    <!-- Non-empty Cart Start -->
+    <div class="order container mx-auto w-1/2">
+        <!-- Heading div -->
+        <div class="flex items-center border-b border-gray-300 pb-4">
+            <img src="/img/cart-black.png" alt="cart"/>
+            <h1 class="font-bold ml-4 text-2xl">Order Summary</h1>
+        </div>
+        <hr/>
+
+        <!-- Item Card Start -->
+        <div class="pizza-list">
+            <div class="flex items-center my-8">
+                <!-- Item Img -->
+                <img class="w-24" src="/img/pizza.png" alt="pizza-item"/>
+
+                <!-- Item Info -->
+                <div class="flex-1 ml-4">
+                    <h1>Marinara</h1>
+                    <span class="uppercase">medium</span>
+                </div>
+                <!-- Item quantity -->
+                <span class="flex-1">1 Pcs</span>
+                <span class="font-bold text-lg">₹300</span>
+            </div> 
+        </div>
+        <!-- Item Card End -->
+
+        <!-- Item Card Start -->
+        <div class="pizza-list">
+            <div class="flex items-center my-8">
+                <!-- Item Img -->
+                <img class="w-24" src="/img/pizza.png" alt="pizza-item"/>
+
+                <!-- Item Info -->
+                <div class="flex-1 ml-4">
+                    <h1>Marinara</h1>
+                    <span class="uppercase">medium</span>
+                </div>
+                <!-- Item quantity -->
+                <span class="flex-1">1 Pcs</span>
+                <span class="font-bold text-lg">₹300</span>
+            </div> 
+        </div>
+        <!-- Item Card End -->
+
+        <!-- Item Card Start -->
+        <div class="pizza-list">
+            <div class="flex items-center my-8">
+                <!-- Item Img -->
+                <img class="w-24" src="/img/pizza.png" alt="pizza-item"/>
+
+                <!-- Item Info -->
+                <div class="flex-1 ml-4">
+                    <h1>Marinara</h1>
+                    <span class="uppercase">medium</span>
+                </div>
+                <!-- Item quantity -->
+                <span class="flex-1">1 Pcs</span>
+                <span class="font-bold text-lg">₹300</span>
+            </div> 
+        </div>
+        <!-- Item Card End -->
+        <hr/>
+
+        <!-- Order Now -->
+        <div class="text-right py-4">
+            <div>
+                <span class="text-lg font-bold">Total Amount: </span>
+                <span class="amount text-2xl font-bold ml-2">₹300</span>
+            </div>
+            <!-- Form -->
+            <div>
+                <form action="" class="mt-12">
+                    <input class="border border-gray-400 p-2 w-1/2 mb-4" type="text" name="phnNumber" placeholder="Phone Number">
+                    <input class="border border-gray-400 p-2 w-1/2 mb-4" type="text" name="address" placeholder="Address">
+                    <div>
+                        <!-- <button type="submit" class="px-6 py-2 rounded-full text-white font-bold mt-6 btn-primary">Order Now</button> -->
+                        <button type="submit"><span class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Order Now</span></button>
+                    </div>
+                </form>
+            </div>
+            <!-- If user not logged in -->
+            <a href="" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Login to continue</a>
+        </div>
+        
+
+        
+    </div>
+    <!-- Non-empty Cart End -->
+</section>
