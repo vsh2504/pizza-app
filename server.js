@@ -4,9 +4,9 @@ const ejs = require('ejs')
 const path = require('path')
 const expressLayout = require('express-ejs-layouts')
 
-// Might be possible that 3000 port not available on server where
-// will host the project so we will define it in env var, else 3000
-const PORT = process.env.PORT || 3000
+// Might be possible that 3300 port not available on server where
+// will host the project so we will define it in env var, else 3300
+const PORT = process.env.PORT || 3300
 
 // Assets -> so that css files rel path gets served correctly (not as text/html)
 // static func is like a middleware
