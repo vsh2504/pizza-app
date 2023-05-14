@@ -12,16 +12,20 @@ const PORT = process.env.PORT || 3300
 // static func is like a middleware
 app.use(express.static('public'))
 
-// Define routes
-app.get('/', (req, res) => {
-    res.render('home')
-})
-
 // Set Template engine
 app.use(expressLayout)
 // Tell express where views are stored
 app.set('views', path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs')
+
+// Define routes after setting up ejs and expressLayout
+app.get('/', (req, res) => {
+    res.render('home')
+})
+
+app.get('/cart', (req, res) =>{
+    res.render('customers/cart')
+})
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
