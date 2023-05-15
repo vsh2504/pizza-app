@@ -8,6 +8,18 @@ function authController() {
             res.render('auth/login')
         },
         postLogin(req, res, next){
+            // Parse request body, enable express middleware to receive url data in server.js
+            const { email, password } = req.body
+            // Validate the request
+            if(!email || !password0) {
+                // Need to show errs to the page
+                // Make use of sessions to show it using the express-flash
+                // to flash msgs the errs to the screen/page
+                // This msg will be available for one req i.e. when we redirect and if we refresh the pg it will disappear.
+                req.flash('error', 'All fields are required') // Key, value/msg
+                return res.redirect('/login')
+            }
+
             // The callback function is the same func we call done in register post
             // Here we will define this func now
             passport.authenticate('local', (err, user, info) => {

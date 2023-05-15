@@ -37,19 +37,28 @@
                 <span class="text-lg font-bold">Total Amount: </span>
                 <span class="amount text-2xl font-bold ml-2">₹<%= session.cart.totalPrice %></span>
             </div>
-            <!-- Form -->
-            <div>
-                <form action="" class="mt-12">
-                    <input class="border border-gray-400 p-2 w-1/2 mb-4" type="text" name="phnNumber" placeholder="Phone Number">
-                    <input class="border border-gray-400 p-2 w-1/2 mb-4" type="text" name="address" placeholder="Address">
-                    <div>
-                        <!-- <button type="submit" class="px-6 py-2 rounded-full text-white font-bold mt-6 btn-primary">Order Now</button> -->
-                        <button type="submit"><span class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Order Now</span></button>
-                    </div>
-                </form>
-            </div>
-            <!-- If user not logged in -->
-            <a href="" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Login to continue</a>
+            <% if(user) { %>
+                <!-- Form -->
+                <div>
+                    <form action="/orders" method="post" class="mt-12">
+                        <input name="phone" class="border border-gray-400 p-2 w-1/2 mb-4" type="text" name="phnNumber" placeholder="Phone Number">
+                        <input name="addres" class="border border-gray-400 p-2 w-1/2 mb-4" type="text" name="address" placeholder="Address">
+                        <div>
+                            <!-- <button type="submit" class="px-6 py-2 rounded-full text-white font-bold mt-6 btn-primary">Order Now</button> -->
+                            <button type="submit">
+                                <span class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">
+                                    Order Now
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            <% else { %>
+                <!-- If user not logged in -->
+                <a href="/login" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">
+                    Login to continue
+                </a>
+            <% } %>
         </div>
     </div>
     <!-- Non-empty Cart End -->
