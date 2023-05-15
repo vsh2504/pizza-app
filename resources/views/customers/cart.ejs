@@ -1,18 +1,5 @@
 <section class="cart py-16">
-
-    <!-- Empty Cart Start -->
-    <!-- <div class="empty-cart py-12">
-        <div class="container mx-auto text-center">
-            <h1 class="text-3xl font-bold mb-4">Cart Empty 😕</h1>
-            <p class="text-gray-500 text-lg mb-12">You probably haven't ordered a pizza yet.<br/>
-                To order a pizza, go to the main page.</p>
-    
-            <img class="w-2/5 mx-auto" src="/img/empty-cart.png" alt="Empty Cart">
-            <a href="/" class="inline-block btn-primary py-2 px-6 mt-12 text-white font-bold rounded-full">Go back</a>
-        </div>
-    </div> -->
-    <!-- Empty Cart End -->
-
+    <% if(session.cart) %>
     <!-- Non-empty Cart Start -->
     <div class="order container mx-auto w-1/2">
         <!-- Heading div -->
@@ -24,64 +11,31 @@
 
         <!-- Item Card Start -->
         <div class="pizza-list">
+            <% for(let pizza of Object.values(session.cart.items)) { %>
             <div class="flex items-center my-8">
                 <!-- Item Img -->
-                <img class="w-24" src="/img/pizza.png" alt="pizza-item"/>
+                <img class="w-24" src="/img/<%= pizza.item.image %>" alt="pizza-item"/>
 
                 <!-- Item Info -->
                 <div class="flex-1 ml-4">
-                    <h1>Marinara</h1>
-                    <span class="uppercase">medium</span>
+                    <h1><%= pizza.item.name %></h1>
+                    <span><%= pizza.item.size %></span>
                 </div>
                 <!-- Item quantity -->
-                <span class="flex-1">1 Pcs</span>
-                <span class="font-bold text-lg">₹300</span>
+                <span class="flex-1"><%= pizza.qty %> Pcs</span>
+                <span class="font-bold text-lg">₹ <%= pizza.item.price * pizza.qty %></span>
             </div> 
+            <% } %>
         </div>
         <!-- Item Card End -->
 
-        <!-- Item Card Start -->
-        <div class="pizza-list">
-            <div class="flex items-center my-8">
-                <!-- Item Img -->
-                <img class="w-24" src="/img/pizza.png" alt="pizza-item"/>
-
-                <!-- Item Info -->
-                <div class="flex-1 ml-4">
-                    <h1>Marinara</h1>
-                    <span class="uppercase">medium</span>
-                </div>
-                <!-- Item quantity -->
-                <span class="flex-1">1 Pcs</span>
-                <span class="font-bold text-lg">₹300</span>
-            </div> 
-        </div>
-        <!-- Item Card End -->
-
-        <!-- Item Card Start -->
-        <div class="pizza-list">
-            <div class="flex items-center my-8">
-                <!-- Item Img -->
-                <img class="w-24" src="/img/pizza.png" alt="pizza-item"/>
-
-                <!-- Item Info -->
-                <div class="flex-1 ml-4">
-                    <h1>Marinara</h1>
-                    <span class="uppercase">medium</span>
-                </div>
-                <!-- Item quantity -->
-                <span class="flex-1">1 Pcs</span>
-                <span class="font-bold text-lg">₹300</span>
-            </div> 
-        </div>
-        <!-- Item Card End -->
         <hr/>
 
         <!-- Order Now -->
         <div class="text-right py-4">
             <div>
                 <span class="text-lg font-bold">Total Amount: </span>
-                <span class="amount text-2xl font-bold ml-2">₹300</span>
+                <span class="amount text-2xl font-bold ml-2">₹<%= session.cart.totalPrice %></span>
             </div>
             <!-- Form -->
             <div>
@@ -97,9 +51,20 @@
             <!-- If user not logged in -->
             <a href="" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Login to continue</a>
         </div>
-        
-
-        
     </div>
     <!-- Non-empty Cart End -->
+    <% } else { %>
+        <!-- Empty Cart Start -->
+        <div class="empty-cart py-12">
+            <div class="container mx-auto text-center">
+                <h1 class="text-3xl font-bold mb-4">Cart Empty 😕</h1>
+                <p class="text-gray-500 text-lg mb-12">You probably haven't ordered a pizza yet.<br/>
+                    To order a pizza, go to the main page.</p>
+        
+                <img class="w-2/5 mx-auto" src="/img/empty-cart.png" alt="Empty Cart">
+                <a href="/" class="inline-block btn-primary py-2 px-6 mt-12 text-white font-bold rounded-full">Go back</a>
+            </div>
+        </div>
+        <!-- Empty Cart End -->
+    <% } %>
 </section>

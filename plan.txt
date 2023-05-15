@@ -18,9 +18,9 @@
 [+] Create register page with route
 [+] - move routes to routes files
 [+] - Create dedicated controllers
-[.] Add to cart functionality
-    [.] Fetch all pizzas from db and show on home page
-    [.] Create menu model and put dummy Data
+[+] Add to cart functionality
+    [+] Fetch all pizzas from db and show on home page
+    [+] Create menu model and put dummy Data
         - connect to mongo db
         - use connect-mongo for session store
             - dependancies
