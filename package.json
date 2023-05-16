@@ -7,7 +7,8 @@
   "scripts": {
     "serve": "node server.js",
     "dev": "nodemon server.js",
-    "watch": "npx mix -- --watch"
+    "compile": "npx mix",
+    "watch": "npm run compile -- --watch"
   },
   "license": "MIT",
   "dependencies": {

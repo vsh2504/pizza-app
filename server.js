@@ -7,7 +7,7 @@ const expressLayout = require('express-ejs-layouts')
 const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('express-flash')
-const MongoDbStore = require('connect-mongo')(session)
+const MongoDbStore = require('connect-mongo')
 const passport = require('passport')
 const Emitter = require('events')
 
@@ -31,10 +31,10 @@ connection.once('open', () => {
 // Session store
 // We need to pass the conn for which db we want to store
 // collection inside the db we want to create
-let mongoStore = new MongoDbStore({
-    mongooseConnection: connection,
-    collection: 'sessions'
-})
+// let mongoStore = new MongoDbStore({
+//     mongooseConnection: connection,
+//     collection: 'sessions'
+// })
 
 // Event emitter 
 // Works on pub-sub arch
@@ -53,10 +53,15 @@ app.use(session({
     // Secrets are stored outside into the nodes and our apps can only access it
     secret: process.env.COOKIE_SECRET,
     resave: false,
-    store: mongoStore,
+    store: MongoDbStore.create({
+        mongoUrl: url
+    }),
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 } // 24 hr cookie life
 }))
+
+// We can also pass client conn to above instead of url
+// client = connection.getClient()
 
 // Passport config
 // Initialize the strategy
