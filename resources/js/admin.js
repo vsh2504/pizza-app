@@ -1,7 +1,8 @@
 import axios from 'axios'
 import moment from 'moment'
+import Noty from 'noty'
 
-export function initAdmin() {
+export function initAdmin(socket) {
     const orderTableBody = document.querySelector('#orderTableBody')
     let orders = []
     let markup // Table html markup store
@@ -79,4 +80,21 @@ export function initAdmin() {
         `
         }).join('')
     }
+
+    // Socket for listening in admin pvt room
+    // socket object received inside the func arg/params
+    socket.on('orderPlaced', (order) => {
+        new Noty({
+            type: 'success',
+            timeout: 1000,
+            text: 'New order!',
+            progressBar: false,
+        }).show(); 
+        // Add the order to orders array received from AJAX call earlier at the top
+        // We use unshift to add it at the start
+        orders.unshift(order)
+        // Clear the table and the rewrite it
+        orderTableBody.innerHTML = ''
+        orderTableBody.innerHTML = generateMarkup(orders)
+    })
 }
