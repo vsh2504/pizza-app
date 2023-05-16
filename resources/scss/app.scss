@@ -194,18 +194,20 @@ section.status {
     margin-top: 8px;
 }
 
-
-
-
-
-.yellow {
-    background-color: yellow;
+@media(max-width:1060px) {
+    .container {
+        max-width: 90%;
+    }
+    table {
+       display: block;
+       overflow-x: auto;
+       white-space: nowrap;
+    }
 }
 
-.green {
-    background-color: green;
-}
-
-.blue {
-    background-color: blue;
+// max-width same as md so that font size and icon size reduction matches
+@media(max-width: 768px) {
+    .status-box ul li span:before {
+        font-size: 34px;
+    }
 }

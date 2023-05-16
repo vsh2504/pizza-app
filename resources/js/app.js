@@ -83,7 +83,6 @@ updateStatus(order);
 
 // Socket 
 let socket = io()
-initAdmin(socket)
 
 // Join event emit over pvt room
 if(order) {
@@ -92,11 +91,12 @@ if(order) {
 
 // Update the order for admin in real time
 let adminAreaPath = window.location.pathname // Get the current url path 
-console.log(adminAreaPath)
+// console.log(adminAreaPath)
 
 // No unique room needed here like for orders
 // One admin room is sufficient
 if(adminAreaPath.includes('admin')) {
+    initAdmin(socket)
     socket.emit('join', 'adminRoom')
 }
 
